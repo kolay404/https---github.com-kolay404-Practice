@@ -32,6 +32,11 @@ const CarsOnRoad = () => {
             animationDelay: `${car.offset}s`, // Create different starting times for each car
           }}
         >
+        <img
+            src="https://www.icegif.com/wp-content/uploads/2022/11/icegif-818.gif" // Replace this with your GIF URL
+            alt="car"
+            className="car-gif"
+        />
           🚗
         </div>
       ))}
