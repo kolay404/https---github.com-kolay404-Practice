@@ -1,47 +1,47 @@
 import React, { useEffect, useState } from "react";
 import "./App.css"; // Import CSS file for styling
 
-const CarsOnRoad = () => {
-  // Create a list of cars with random positions and speeds
-  const [cars, setCars] = useState([]);
+const DancingMonkeysOnRoad = () => {
+  // Create a list of dancing monkeys with random positions and speeds
+  const [monkeys, setMonkeys] = useState([]);
 
   useEffect(() => {
-    const numberOfCars = 5; // Set how many cars you want
-    const newCars = [];
+    const numberOfMonkeys = 5; // Set how many monkeys you want
+    const newMonkeys = [];
 
-    // Create a list of car objects with random speeds and starting positions
-    for (let i = 0; i < numberOfCars; i++) {
-      newCars.push({
+    // Create a list of monkey objects with random speeds and starting positions
+    for (let i = 0; i < numberOfMonkeys; i++) {
+      newMonkeys.push({
         id: i,
         speed: Math.random() * 3 + 2, // Random speed between 2 and 5
         offset: Math.random() * 100, // Random starting position (offset)
       });
     }
 
-    setCars(newCars); // Set the cars state
+    setMonkeys(newMonkeys); // Set the monkeys state
   }, []);
 
   return (
     <div className="road-container">
-      {cars.map((car) => (
+      {monkeys.map((monkey) => (
         <div
-          key={car.id}
-          className="car"
+          key={monkey.id}
+          className="monkey"
           style={{
-            animationDuration: `${car.speed}s`,
-            animationDelay: `${car.offset}s`, // Create different starting times for each car
+            animationDuration: `${monkey.speed}s`,
+            animationDelay: `${monkey.offset}s`, // Create different starting times for each monkey
           }}
         >
-        <img
-            src="https://www.icegif.com/wp-content/uploads/2022/11/icegif-818.gif" // Replace this with your GIF URL
-            alt="car"
-            className="car-gif"
-        />
-          🚗
+          {/* Replace with the actual dancing monkey GIF URL */}
+          <img
+            src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbG12bTVqeDdvN3k3dndlemlnYmk5bjF2dWx5bnhwOGp4c2t0MnJqYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5QQpgP8qmuqNa8bW0R/giphy.gif"
+            alt="dancing monkey"
+            className="monkey-gif"
+          />
         </div>
       ))}
     </div>
   );
 };
 
-export default CarsOnRoad;
+export default DancingMonkeysOnRoad;

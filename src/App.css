@@ -19,26 +19,20 @@
   z-index: 1;
 }
 
-/* Road lane markings */
-.road-container::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  height: 10px;
-  background-image: dashed 100% 100%;
-  background-color: #fff;
-  z-index: 2;
-}
-
 /* Styling for the cars */
 .car {
-  font-size: 60px;
   position: absolute;
   bottom: 20px; /* Position the car on the road */
-  left: -100px; /* Initially off-screen to the left */
+  font-size: 50px; /* Default font size for emojis */
   animation: moveCar linear infinite; /* Continuous movement */
   z-index: 3;
+  transition: transform 1s ease-in-out;
+}
+
+/* Styling for the dancing monkey GIF */
+.car-gif {
+  width: 80px; /* Set a width for the dancing monkey */
+  height: auto;
 }
 
 /* Keyframes for moving the car */
