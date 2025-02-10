@@ -1,24 +1,42 @@
-import React, { useState, useEffect } from 'react';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css"; // Import CSS file for styling
 
-const App = () => {
-  const [isAnimating, setIsAnimating] = useState(false);
+const CarsOnRoad = () => {
+  // Create a list of cars with random positions and speeds
+  const [cars, setCars] = useState([]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIsAnimating(prev => !prev); // Toggle animation every 1 second
-    }, 1000);
+    const numberOfCars = 5; // Set how many cars you want
+    const newCars = [];
 
-    return () => clearInterval(interval); // Clean up the interval on unmount
+    // Create a list of car objects with random speeds and starting positions
+    for (let i = 0; i < numberOfCars; i++) {
+      newCars.push({
+        id: i,
+        speed: Math.random() * 3 + 2, // Random speed between 2 and 5
+        offset: Math.random() * 100, // Random starting position (offset)
+      });
+    }
+
+    setCars(newCars); // Set the cars state
   }, []);
 
   return (
-    <div className="middle-finger-container">
-      <span className={`middle-finger ${isAnimating ? "animate" : ""}`}>
-        🖕
-      </span>
+    <div className="road-container">
+      {cars.map((car) => (
+        <div
+          key={car.id}
+          className="car"
+          style={{
+            animationDuration: `${car.speed}s`,
+            animationDelay: `${car.offset}s`, // Create different starting times for each car
+          }}
+        >
+          🚗
+        </div>
+      ))}
     </div>
   );
 };
 
-export default App;
+export default CarsOnRoad;

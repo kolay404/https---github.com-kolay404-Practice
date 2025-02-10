@@ -1,29 +1,52 @@
-.middle-finger-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* Background styling for the road */
+.road-container {
+  position: relative;
+  width: 100%;
   height: 100vh;
-  background-color: #f0f0f0;
+  background-color: #87ceeb; /* Sky-blue color for the background */
+  overflow: hidden;
 }
 
-.middle-finger {
-  font-size: 100px;
-  transition: transform 0.3s ease-in-out;
+/* Create the road */
+.road-container::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+  background-color: #333; /* Dark road color */
+  border-radius: 10px 10px 0 0;
+  z-index: 1;
 }
 
-.animate {
-  transform: translateY(-20px); /* Move the finger up */
-  animation: flicker 0.5s infinite alternate; /* Flickering effect */
+/* Road lane markings */
+.road-container::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 10px;
+  background-image: dashed 100% 100%;
+  background-color: #fff;
+  z-index: 2;
 }
 
-@keyframes flicker {
+/* Styling for the cars */
+.car {
+  font-size: 60px;
+  position: absolute;
+  bottom: 20px; /* Position the car on the road */
+  left: -100px; /* Initially off-screen to the left */
+  animation: moveCar linear infinite; /* Continuous movement */
+  z-index: 3;
+}
+
+/* Keyframes for moving the car */
+@keyframes moveCar {
   0% {
-    transform: rotate(0deg); /* Finger in normal position */
-  }
-  50% {
-    transform: rotate(10deg); /* Finger rotated a bit for automation effect */
+    transform: translateX(-100px); /* Start off-screen to the left */
   }
   100% {
-    transform: rotate(-10deg); /* Finger rotated in the opposite direction */
+    transform: translateX(100vw); /* Move to the right side of the screen */
   }
 }
