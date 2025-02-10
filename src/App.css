@@ -1,38 +1,29 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.middle-finger-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
 }
 
-.App-link {
-  color: #61dafb;
+.middle-finger {
+  font-size: 100px;
+  transition: transform 0.3s ease-in-out;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.animate {
+  transform: translateY(-20px); /* Move the finger up */
+  animation: flicker 0.5s infinite alternate; /* Flickering effect */
+}
+
+@keyframes flicker {
+  0% {
+    transform: rotate(0deg); /* Finger in normal position */
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    transform: rotate(10deg); /* Finger rotated a bit for automation effect */
+  }
+  100% {
+    transform: rotate(-10deg); /* Finger rotated in the opposite direction */
   }
 }
